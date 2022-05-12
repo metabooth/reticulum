@@ -25,14 +25,57 @@ Windows: https://www.postgresql.org/download/windows/
 
 Windows WSL: https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/blob/master/readmes/installs/PostgreSQL.md
 
-#### Erlang (v22) + Elixir (v1.8) + Phoenix
 
+>## DB 준비
+```
+docker volume create pgdata
+docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=1q2w3e4r -d -v pgdata:/var/lib/postgresql/data postgres
+
+
+docker exec -it postgres bash
+$ psql -U postgres
+psql> ALTER USER postgres WITH PASSWORD 'postgres';
+psql> create database ret_dev;
+psql> exit
+$ exit
+```
+
+#### Erlang (v22) + Elixir (v1.8) + Phoenix
 https://elixir-lang.org/install.html
 
 Note: On Linux, you may also have to install the erlang-src package for your distribution in order to compile dependencies successfully.
 
 https://hexdocs.pm/phoenix/installation.html
 
+
+>## 얼랭/엘릭서/피닉스 설치
+```
+-rw-r--r-- 1 lonycell lonycell  3395980 May 23  2019 elixir_1.8.2-1~ubuntu~bionic_amd64.deb
+-rw-r--r-- 1 lonycell lonycell     6288 Oct 22  2019 erlang-solutions_2.0_all.deb
+-rw-r--r-- 1 lonycell lonycell 38637764 Aug 22  2020 esl-erlang_22.3.4.9-1~ubuntu~focal_amd64.deb
+
+
+ 2000  sudo dpkg -i erlang-solutions_2.0_all.deb
+ 2001  sudo apt-get update
+ 2003  wget https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_22.3.4.9-1~ubuntu~focal_amd64.deb
+ 2005  sudo dpkg -i esl-erlang_22.3.4.9-1~ubuntu~focal_amd64.deb
+ 2006  wget https://packages.erlang-solutions.com/erlang/debian/pool/elixir_1.8.2-1~ubuntu~bionic_amd64.deb
+
+ 2008  sudo dpkg -i elixir_1.8.2-1~ubuntu~bionic_amd64.deb
+ 2009  mix local.hex
+ 2010  elixir -v
+```
+>## 개발용 인증서
+```
+ 1940  mkdir certs
+ 1941  openssl rsa -in pet-mom_club_key.txt -text > private.pem
+ 1942  openssl x509 -inform PEM -in pet-mom.club.crt > public.pem
+ 1943  openssl x509 -inform PEM -in pet-mom.club.ca-bundle > ca-bundle.pem
+ 1944  openssl pkcs7 -print_certs -in pet-mom.club.p7b -out certs.cer
+ 1945  openssl pkcs7 -print_certs -in pet-mom.club.p7b -out certs.pem
+ 1946  npm ci
+ 1947  MEDIASOUP_LISTEN_IP=192.168.0.116 MEDIASOUP_ANNOUNCED_IP=192.168.0.116 npm start
+```
 #### Ansible
 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
