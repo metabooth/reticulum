@@ -3,11 +3,12 @@ on:
   push:
     branches: [ developers/lonycell/master ]
     paths-ignore: ["README.md"]
+
   workflow_dispatch:
 
 jobs:
   turkeyGitops:
-    uses: mozilla/hubs-ops/.github/workflows/turkeyGitops.yml@master
+    uses: lonycell/hubs-ops/.github/workflows/turkeyGitops.yml@master
     with:
       registry: mozillareality
       dockerfile: TurkeyDockerfile
