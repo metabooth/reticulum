@@ -65,17 +65,7 @@ https://hexdocs.pm/phoenix/installation.html
  2009  mix local.hex
  2010  elixir -v
 ```
->## 개발용 인증서
-```
- 1940  mkdir certs
- 1941  openssl rsa -in pet-mom_club_key.txt -text > private.pem
- 1942  openssl x509 -inform PEM -in pet-mom.club.crt > public.pem
- 1943  openssl x509 -inform PEM -in pet-mom.club.ca-bundle > ca-bundle.pem
- 1944  openssl pkcs7 -print_certs -in pet-mom.club.p7b -out certs.cer
- 1945  openssl pkcs7 -print_certs -in pet-mom.club.p7b -out certs.pem
- 1946  npm ci
- 1947  MEDIASOUP_LISTEN_IP=192.168.0.116 MEDIASOUP_ANNOUNCED_IP=192.168.0.116 npm start
-```
+
 #### Ansible
 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
