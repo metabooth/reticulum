@@ -27,9 +27,9 @@ jobs:
       run: MIX_ENV=prod mix release
     - name: Run server
       run: |
-        MIX_ENV=dev mix compile
+        MIX_ENV=prod mix compile
         mkdir -p storage/dev
-        PORT=4000 MIX_ENV=dev elixir --erl "-detached" -S mix phx.server
+        PORT=4000 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
 
   run:
     name: Run
@@ -38,6 +38,8 @@ jobs:
     env:
       ImageOS: ubuntu18
     steps:
+    - uses: actions/checkout@v3
     - name: Run server
       run: |
-        PORT=4000 MIX_ENV=dev mix phx.server
+        MIX_ENV=prod mix compile
+        PORT=4000 MIX_ENV=prod mix phx.server
