@@ -5,31 +5,39 @@ name: reticulum (Elixir CI)
 
 on:
   push:
-    branches: [ developers/lonycell/master ]
+    branches: 
+      - developers/lonycell/master
+      - developers/releases/**
 
 jobs:
   build:
-
-    name: Build and test
-    runs-on: self-hosted
-    
+    name: Full build
+    if: startsWith(github.repository, 'developers/releases/') == true
+    runs-on: self-hosted   
     env:
       ImageOS: ubuntu18
-
     steps:
     - uses: actions/checkout@v3
-    
     - name: Install dependencies
       run: |
         mix local.hex --force
         mix local.rebar --force
         mix deps.get
-      
     - name: Complile production release
       run: MIX_ENV=prod mix release
-
     - name: Run server
       run: |
         MIX_ENV=dev mix compile
         mkdir -p storage/dev
+        PORT=4000 MIX_ENV=dev elixir --erl "-detached" -S mix phx.server
+
+  run:
+    name: Run
+    if: startsWith(github.repository, 'developers/releases/') != true
+    runs-on: self-hosted   
+    env:
+      ImageOS: ubuntu18
+    steps:
+    - name: Run server
+      run: |
         PORT=4000 MIX_ENV=dev elixir --erl "-detached" -S mix phx.server
