@@ -38,7 +38,7 @@ elixir_sense
 log
 
 # Storage
-/storage/
+##/storage/
 
 #VS Code
 .vscode
