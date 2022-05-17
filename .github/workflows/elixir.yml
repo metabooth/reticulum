@@ -30,6 +30,6 @@ jobs:
 
     - name: Run server
       run: |
-        MIX_ENV=prod mix compile
+        MIX_ENV=dev mix compile
         mkdir -p storage/dev
-        PORT=4000 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
+        PORT=4000 MIX_ENV=dev elixir --erl "-detached" -S mix phx.server
