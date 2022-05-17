@@ -1,3 +1,5 @@
+## TODO: PORT=4000 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
+
 name: reticulum (Elixir CI)
 
 on:
@@ -28,4 +30,5 @@ jobs:
     - name: Run server
       run: |
         MIX_ENV=prod mix compile
-        PORT=4000 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
+        mkdir storage/dev
+        iex -S mix phx.server
