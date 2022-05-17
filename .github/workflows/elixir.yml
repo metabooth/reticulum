@@ -31,5 +31,5 @@ jobs:
     - name: Run server
       run: |
         MIX_ENV=prod mix compile
-        mkdir storage/dev
+        mkdir -p storage/dev
         iex -S mix phx.server
