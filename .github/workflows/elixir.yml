@@ -41,4 +41,5 @@ jobs:
     - name: Run server
       run: |
         MIX_ENV=prod mix compile
+        mkdir -p storage/dev
         PORT=4000 MIX_ENV=prod mix phx.server
