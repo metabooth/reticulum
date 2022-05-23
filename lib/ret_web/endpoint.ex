@@ -9,11 +9,12 @@ defmodule RetWeb.Endpoint do
   def get_cors_origin_urls, do: get_cors_origins() |> Enum.filter(&(&1 != "*")) |> Enum.map(&URI.parse/1)
 
   def allowed_origin?(%URI{host: host, port: port, scheme: scheme}) do
-    if get_cors_origins() === ["*"] do
-      true
-    else
-      get_cors_origin_urls() |> Enum.any?(&(&1.host == host && &1.port == port && &1.scheme == scheme))
-    end
+    true
+    # if get_cors_origins() === ["*"] do
+    #   true
+    # else
+    #   get_cors_origin_urls() |> Enum.any?(&(&1.host == host && &1.port == port && &1.scheme == scheme))
+    # end
   end
 
   # Code reloading can be explicitly enabled under the
