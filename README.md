@@ -157,7 +157,7 @@ Ret.AppConfig.set_config_value("features|permissive_rooms", true)
 
 ### 8. Start the Admin Panel server in local development mode
 
-When running locally, you will need to also run the admin panel, which routes to hubs.local:8989
+When running locally, you will need to also run the admin panel, which routes to hubs.local:8990
 Using a separate terminal instance, navigate to the `hubs/admin` folder and use:
 
 ```
