@@ -3,11 +3,11 @@ use Mix.Config
 # NOTE: this file contains some security keys/certs that are *not* secrets, and are only used for local development purposes.
 
 #host = "pet-mom.club"
-#cors_proxy_host = "hubs-proxy.local"
+cors_proxy_host = "hubs-proxy.local"
 #assets_host = "hubs-assets.local"
 #link_host = "hubs-link.local"
 host = "www.pet-mom.club"
-cors_proxy_host = "www.pet-mom.club"
+#cors_proxy_host = "www.pet-mom.club"
 assets_host = "www.pet-mom.club"
 link_host = "www.pet-mom.club"
 
