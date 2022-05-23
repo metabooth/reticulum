@@ -63,7 +63,7 @@ defmodule Ret.Mixfile do
       {:mox, "~> 1.0.1", only: [:dev, :test]},
       {:plug_attack, "~> 0.4"},
       {:ecto_enum, "~> 1.3"},
-      {:the_end, git: "https://github.com/mozillareality/the_end.git", branch: "bug/phoenix-14"},
+      {:the_end, git: "https://github.com/metabooth/the_end.git", branch: "bug/phoenix-14"},
       {:cachex, "~> 3.2"},
       {:retry, "~> 0.13"},
       {:open_graph, "~> 0.0.3"},
