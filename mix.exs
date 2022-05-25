@@ -47,7 +47,7 @@ defmodule Ret.Mixfile do
       {:absinthe_phoenix, "~> 1.4.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.13"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_reload, "~> 1.2", only: [:dev, :local]},
       {:gettext, "~> 0.17"},
       {:cowboy, "~> 2.9"},
       {:plug_cowboy, "~> 2.1"},
@@ -59,8 +59,8 @@ defmodule Ret.Mixfile do
       {:cors_plug, "~> 2.0"},
       {:statix, "~> 1.2"},
       {:quantum, "~> 2.2.7"},
-      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:mox, "~> 1.0.1", only: [:dev, :test]},
+      {:credo, "~> 1.1", only: [:dev, :local, :test], runtime: false},
+      {:mox, "~> 1.0.1", only: [:dev, :local, :test]},
       {:plug_attack, "~> 0.4"},
       {:ecto_enum, "~> 1.3"},
       {:the_end, git: "https://github.com/metabooth/the_end.git", branch: "bug/phoenix-14"},
@@ -89,7 +89,7 @@ defmodule Ret.Mixfile do
       {:oauther, "~> 1.1"},
       {:jason, "~> 1.1"},
       {:ex_rated, "~> 1.3.3"},
-      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:mix_test_watch, "~> 1.0", only: [:dev, :local], runtime: false},
       {:ex_json_schema, "~> 0.7.3"},
       {:observer_cli, "~> 1.5"}
     ]

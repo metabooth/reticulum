@@ -1,8 +1,12 @@
 defmodule RetWeb.HealthController do
+  require Logger #FIXME; SOOSKIM !
   use RetWeb, :controller
   import Ecto.Query
 
   def index(conn, _params) do
+
+    Logger.info("Health check ...")
+
     # Check database
     if module_config(:check_repo) do
       from(h in Ret.Hub, limit: 0) |> Ret.Repo.all()
