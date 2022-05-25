@@ -1,28 +1,12 @@
 use Mix.Config
 
-# NOTE: this file contains some security keys/certs that are *not* secrets, and are only used for local development purposes.
-
-#host = "pet-mom.club"
-cors_proxy_host = "hubs-proxy.local"
-#assets_host = "hubs-assets.local"
-#link_host = "hubs-link.local"
 host = "www.pet-mom.club"
-#cors_proxy_host = "www.pet-mom.club"
-assets_host = "www.pet-mom.club"
-link_host = "www.pet-mom.club"
 
-
-# To run reticulum across a LAN for local testing, uncomment and change the line below to the LAN IP
-# host = cors_proxy_host = "192.168.1.27"
-##lonycell dev_janus_host = "dev-janus.reticulum.io"
+cors_proxy_host = host
+assets_host = host
+link_host = host
 dev_janus_host = host
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with brunch.io to recompile .js and .css sources.
 config :ret, RetWeb.Endpoint,
   url: [scheme: "https", host: host, port: 443],
   static_url: [scheme: "https", host: host, port: 443],
@@ -30,21 +14,16 @@ config :ret, RetWeb.Endpoint,
     port: 4000,
     otp_app: :ret,
     cipher_suite: :strong,
-    # keyfile: "/mnt/d/works/mozilla-hub/metabooth/.certs/pet-mom.club/key.pem",
-    # certfile: "/mnt/d/works/mozilla-hub/metabooth/.certs/pet-mom.club/cert.pem"
     keyfile: "/home/lonycell/server/.certs/pet-mom.club/key.pem",
     certfile: "/home/lonycell/server/.certs/pet-mom.club/cert.pem"
   ],
   cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 443],
   assets_url: [scheme: "https", host: assets_host, port: 443],
   link_url: [scheme: "https", host: link_host, port: 443],
-  #imgproxy_url: [scheme: "http", host: host, port: 5000],
-  imgproxy_url: [scheme: "https", host: host, port: 5001],
+  imgproxy_url: [scheme: "https", host: host, port: 443],
   debug_errors: true,
   code_reloader: false,
   check_origin: false,
-  # This config value is for local development only.
-  # secret_key_base: "txlMOtlaY5x3crvOCko4uV5PM29ul3zGo1oBGNO3cDXx+7GHLKqt0gR9qzgThxb5",
   # TODO: mix phx.gen.secret
   secret_key_base: "WJS8eaO7qwfas7LXpsUioC+F3Jypp5GxDa9OSoUEdaVotazU4m98YSV9YO01J8QT",
   allowed_origins: "*",
@@ -55,15 +34,14 @@ config :logger, :console, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
-config :phoenix, :stacktrace_depth, 20
+config :phoenix, :stacktrace_depth, 40
 
 env_db_host = "#{System.get_env("DB_HOST")}"
 
-# Configure your database
 config :ret, Ret.Repo,
   username: "postgres",
   password: "postgres",
-  database: "ret_dev",
+  database: "ret_production",
   hostname: if(env_db_host == "", do: "localhost", else: env_db_host),
   template: "template0",
   pool_size: 10
@@ -71,7 +49,7 @@ config :ret, Ret.Repo,
 config :ret, Ret.SessionLockRepo,
   username: "postgres",
   password: "postgres",
-  database: "ret_dev",
+  database: "ret_production",
   hostname: if(env_db_host == "", do: "localhost", else: env_db_host),
   template: "template0",
   pool_size: 10
@@ -98,11 +76,10 @@ config :ret, RetWeb.Api.V1.WhatsNewController, token: ""
 
 config :ret, RetWeb.Plugs.DashboardHeaderAuthorization, dashboard_access_key: ""
 
-# Allow any origin for API access in dev
+# Allow any origin for API access.
 config :cors_plug, origin: ["*"]
 
 config :ret,
-  # This config value is for local development only.
   upload_encryption_key: "a8dedeb57adafa7821027d546f016efef5a501bd",
   bot_access_key: ""
 
@@ -134,23 +111,38 @@ config :ret, Ret.Storage,
   ttl: 60 * 60 * 24
 
 asset_hosts =
-  "https://localhost:4000 https://localhost:8080 " <>
-    "https://#{host} https://#{host}:4000 https://#{host}:8080 https://#{host}:3000 https://#{host}:8989 https://#{host}:9090 https://#{
-      cors_proxy_host
-    }:4000 " <>
-    "https://assets-prod.reticulum.io https://asset-bundles-dev.reticulum.io https://asset-bundles-prod.reticulum.io"
+  "https://localhost:8080 " <>
+  "https://#{host} " <>
+  "https://#{host}:8080 " <>
+  "https://#{host}:8989 " <>
+  "https://#{cors_proxy_host}:4000 " <>
+  "https://assets-prod.reticulum.io " <>
+  "https://asset-bundles-dev.reticulum.io " <>
+  "https://asset-bundles-prod.reticulum.io"
 
 websocket_hosts =
-  "https://localhost:4000 https://localhost:8080 wss://localhost:4000 " <>
-    "https://#{host}:4000 https://#{host}:8080 wss://#{host}:4000 wss://#{host}:8080 wss://#{host}:8989 wss://#{host}:9090 " <>
-    "wss://#{host}:4000 wss://#{host}:8080 https://#{host}:8080 https://localhost:8080 wss://localhost:8080"
+  "https://localhost:4000 " <>
+  "https://localhost:8080 " <>
+  "https://localhost:8989 " <>
+  "https://localhost:9090 " <>
+  "https://#{host}:4000 " <>
+  "https://#{host}:8080 " <>
+  "https://#{host}:8989 " <>
+  "https://#{host}:9090 " <>
+  "wss://localhost:8080 " <>
+  "wss://localhost:4000 " <>
+  "wss://localhost:8989 " <>
+  "wss://localhost:9090 " <>
+  "wss://#{host}:4000 " <>
+  "wss://#{host}:8080 " <>
+  "wss://#{host}:8989 " <>
+  "wss://#{host}:9090 "
 
 config :ret, RetWeb.Plugs.AddCSP,
   script_src: asset_hosts,
   font_src: asset_hosts,
   style_src: asset_hosts,
-  connect_src:
-    "https://#{host}:8080 https://sentry.prod.mozaws.net #{asset_hosts} #{websocket_hosts} https://www.mozilla.org",
+  connect_src: "https://#{host}:8080 https://sentry.prod.mozaws.net #{asset_hosts} #{websocket_hosts} https://www.mozilla.org",
   img_src: asset_hosts,
   media_src: asset_hosts,
   manifest_src: asset_hosts
@@ -169,7 +161,6 @@ config :ret, Ret.OAuthToken, oauth_token_key: ""
 #TODO:
 config :ret, Ret.Guardian,
   issuer: "ret",
-  # This config value is for local development only.
   secret_key: "47iqPEdWcfE7xRnyaxKDLt9OGEtkQG3SycHBEMOuT2qARmoESnhc76IgCUjaQIwX",
   ttl: {12, :weeks}
 
@@ -177,7 +168,6 @@ config :ret, Ret.Guardian,
 config :web_push_encryption, :vapid_details,
   subject: "mailto:admin@mozilla.com",
   public_key: "BAb03820kHYuqIvtP6QuCKZRshvv_zp5eDtqkuwCUAxASBZMQbFZXzv8kjYOuLGF16A3k8qYnIN10_4asB-Aw7w",
-  # This config value is for local development only.
   private_key: "w76tXh1d3RBdVQ5eINevXRwW6Ow6uRcBa8tBDOXfmxM"
 
 config :sentry,
@@ -191,7 +181,6 @@ config :sentry,
 config :ret, Ret.Habitat, ip: "127.0.0.1", http_port: 9631
 
 #TODO:
-##lonycell -- config :ret, Ret.JanusLoadStatus, default_janus_host: dev_janus_host, janus_port: 443
 config :ret, Ret.JanusLoadStatus, default_janus_host: dev_janus_host, janus_port: 4443
 
 config :ret, Ret.RoomAssigner, balancer_weights: [{600, 1}, {300, 50}, {0, 500}]
@@ -210,7 +199,7 @@ config :ret, Ret.Locking,
   session_lock_db: [
     username: "postgres",
     password: "postgres",
-    database: "ret_dev",
+    database: "ret_production",
     hostname: if(env_db_host == "", do: "localhost", else: env_db_host)
   ]
 
