@@ -47,7 +47,7 @@ config :ret, RetWeb.Endpoint,
   server: false,
   root: "."
 
-  config :logger, :console, format: "[$level] $message\n"
+config :logger, :console, level: :info, format: "[$level] $message\n"
 
 config :ret, Ret.Repo,
   username: "postgres",
