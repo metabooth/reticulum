@@ -5,7 +5,9 @@ defmodule Ret.JanusLoadStatus do
   def interval, do: :timer.seconds(15)
 
   def execute(_state) do
-    with default_janus_host when is_binary(default_janus_host) and default_janus_host != "" <-
+    #FIXME
+    #with default_janus_host when is_binary(default_janus_host) and default_janus_host != "" <-
+    with default_janus_host when default_janus_host != "" <-
            module_config(:default_janus_host) do
       {:ok, [{:host_to_ccu, [{default_janus_host, 0}]}]}
     else
