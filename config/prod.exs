@@ -44,7 +44,7 @@ config :ret, RetWeb.Endpoint,
   allowed_origins: "*",
   allow_crawlers: true,
   pubsub: [name: Ret.PubSub, adapter: Phoenix.PubSub.PG2, pool_size: 4],
-  server: true,
+  server: false,
   root: "."
 
 config :logger, level: :info
