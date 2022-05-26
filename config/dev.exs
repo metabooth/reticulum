@@ -2,7 +2,7 @@ use Mix.Config
 
 # NOTE: this file contains some security keys/certs that are *not* secrets, and are only used for local development purposes.
 
-host = "hubs.local"
+host = "www.pet-mom.club"
 cors_proxy_host = "hubs-proxy.local"
 assets_host = "hubs-assets.local"
 link_host = "hubs-link.local"
@@ -19,8 +19,8 @@ dev_janus_host = "dev-janus.reticulum.io"
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :ret, RetWeb.Endpoint,
-  url: [scheme: "https", host: host, port: 443],
-  static_url: [scheme: "https", host: host, port: 443],
+  url: [scheme: "https", host: host],
+  static_url: [scheme: "https", host: host],
   https: [
     port: 4000,
     otp_app: :ret,
