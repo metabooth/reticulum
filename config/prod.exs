@@ -84,29 +84,6 @@ config :ret, Ret.SessionLockRepo,
   template: "template0",
   pool_size: 10
 
-# ## SSL Support
-#
-# We also recommend setting `force_ssl`, ensuring no data is
-# ever sent via http, always redirecting to https:
-#
-#     config :ret, RetWeb.Endpoint,
-#       force_ssl: [hsts: true]
-#
-# Check `Plug.SSL` for all available options in `force_ssl`.
-
-# ## Using releases
-#
-# If you are doing OTP releases, you need to instruct Phoenix
-# to start the server for all endpoints:
-#
-#     config :phoenix, :serve_endpoints, true
-#
-# Alternatively, you can configure exactly which server to
-# start per endpoint:
-#
-#     config :ret, RetWeb.Endpoint, server: true
-#
-
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
@@ -181,3 +158,9 @@ config :ret, Ret.StatsJob, node_stats_enabled: false, node_gauges_enabled: false
 
 # Default repo check and page check to off so for polycosm hosts database + s3 hits can go idle
 config :ret, RetWeb.HealthController, check_repo: false
+
+#
+config :ret, Ret.Storage,
+  #host: "https://#{host}:4000",
+  storage_path: "storage/dev",
+  ttl: 60 * 60 * 24
