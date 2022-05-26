@@ -15,21 +15,21 @@ use Mix.Config
 # which you typically run after static files are built.
 
 host = "www.pet-mom.club"
-cors_proxy_host = "hubs-proxy.local"
-assets_host = "hubs-assets.local"
-link_host = "hubs-link.local"
+cors_proxy_host = "www.pet-mom.club"
+assets_host = "www.pet-mom.club"
+link_host = "www.pet-mom.club"
 dev_janus_host = host
 
 config :ret, RetWeb.Endpoint,
   https: [
     port: 4000,
-    otp_app: :ret,
+    #otp_app: :ret,
     keyfile: "/home/lonycell/metabooth/.certs/key.pem",
     certfile: "/home/lonycell/metabooth/.certs/cert.crt"
   ],
   http: [
     port: 4001,
-    otp_app: :ret
+    #otp_app: :ret
   ],
   url: [scheme: "https", host: host, port: 443],
   static_url: [scheme: "https", host: host, port: 443],
@@ -44,8 +44,8 @@ config :ret, RetWeb.Endpoint,
   allowed_origins: "*",
   allow_crawlers: true,
   pubsub: [name: Ret.PubSub, adapter: Phoenix.PubSub.PG2, pool_size: 4],
-  server: false,
-  root: "."
+  #server: false,
+  #root: "."
 
 config :logger, :console, format: "[$level] $message\n"
 
