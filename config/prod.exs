@@ -117,13 +117,14 @@ config :ret, Ret.Guardian, issuer: "ret", ttl: {12, :weeks}, allowed_drift: 60 *
 
 config :tzdata, :autoupdate, :disabled
 
-config :sentry,
-  environment_name: :prod,
-  json_library: Poison,
-  included_environments: [:prod],
-  tags: %{
-    env: "prod"
-  }
+#TODO
+# config :sentry,
+#   environment_name: :prod,
+#   json_library: Poison,
+#   included_environments: [:prod],
+#   tags: %{
+#     env: "prod"
+#   }
 
 config :ret, Ret.RoomAssigner, balancer_weights: [{600, 1}, {300, 50}, {0, 500}]
 
@@ -152,3 +153,13 @@ config :ret, Ret.Storage,
 
 #
 config :ret, Ret.JanusLoadStatus, default_janus_host: dev_janus_host, janus_port: 4443
+
+#
+config :ret, Ret.PageOriginWarmer,
+  hubs_page_origin: "https://#{host}:8080",
+  admin_page_origin: "https://#{host}:8989",
+  spoke_page_origin: "https://#{host}:9090",
+  insecure_ssl: true
+
+config :ret, Ret.HttpUtils, insecure_ssl: true
+
