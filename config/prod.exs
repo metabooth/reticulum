@@ -49,6 +49,9 @@ config :ret, RetWeb.Endpoint,
 
 config :logger, :console, format: "[$level] $message\n"
 
+#TODO
+config :cors_plug, origin: ["*"]
+
 config :ret, Ret.Repo,
   username: "postgres",
   password: "postgres",
