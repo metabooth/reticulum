@@ -47,7 +47,7 @@ config :ret, RetWeb.Endpoint,
   server: false,
   root: "."
 
-config :logger, :console, level: :info, format: "[$level] $message\n"
+config :logger, :console, format: "[$level] $message\n"
 
 config :ret, Ret.Repo,
   username: "postgres",
@@ -75,7 +75,8 @@ config :phoenix, :filter_parameters, ["q", "filter", "cursor"]
 # Disable prepared queries bc of pgbouncer
 config :ret, Ret.Repo, adapter: Ecto.Adapters.Postgres, prepare: :unnamed
 
-config :peerage, via: Ret.PeerageProvider
+#TODO
+#config :peerage, via: Ret.PeerageProvider
 
 config :ret, page_auth: [username: "", password: "", realm: "Reticulum"]
 
