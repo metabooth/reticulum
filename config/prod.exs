@@ -167,3 +167,6 @@ config :ret, Ret.Storage,
 
 #
 config :ret, Ret.Habitat, ip: "127.0.0.1", http_port: 9631
+
+#
+config :ret, Ret.JanusLoadStatus, default_janus_host: dev_janus_host, janus_port: 4443
