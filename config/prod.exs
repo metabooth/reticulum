@@ -151,7 +151,7 @@ config :ret, Ret.Locking,
     hostname: "localhost"
   ]
 
-config :ret, Ret.JanusLoadStatus, janus_port: 443
+config :ret, Ret.JanusLoadStatus, janus_port: 4443
 
 # Default stats job to off so for polycosm hosts the database can go idle
 config :ret, Ret.StatsJob, node_stats_enabled: false, node_gauges_enabled: false
@@ -164,3 +164,6 @@ config :ret, Ret.Storage,
   #host: "https://#{host}:4000",
   storage_path: "storage/dev",
   ttl: 60 * 60 * 24
+
+#
+config :ret, Ret.Habitat, ip: "127.0.0.1", http_port: 9631
