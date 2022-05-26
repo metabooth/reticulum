@@ -2,7 +2,9 @@ defmodule Ret.PeerageProvider do
   alias Ret.Habitat
 
   def poll do
-    Habitat.get_service_members("reticulum")
+    #FIXME
+    #Habitat.get_service_members("reticulum")
+    Habitat.get_service_members()
     |> Enum.map(fn {host, _ip} -> host |> hostname_to_erlang_node end)
     |> Enum.filter(&(&1 != Node.self()))
   end
