@@ -31,9 +31,12 @@ bot_token = ""
 
 [ret."Elixir.RetWeb.Endpoint".https]
 port = 4000
-certfile = "/ret/cert.pem"
-cacertfile = "/ret/cacert.pem"
-keyfile = "/ret/key.pem"
+certfile = "/home/lonycell/metabooth/.certs/cert.pem"
+#cacertfile = "/home/lonycell/metabooth/.certs/cacert.pem"
+keyfile = "/home/lonycell/metabooth/.certs/key.pem"
+#certfile = "/ret/cert.pem"
+#cacertfile = "/ret/cacert.pem"
+#keyfile = "/ret/key.pem"
 
 [ret."Elixir.RetWeb.Endpoint"]
 allowed_origins = "*"
