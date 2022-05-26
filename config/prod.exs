@@ -43,7 +43,7 @@ config :ret, RetWeb.Endpoint,
   secret_key_base: "txlMOtlaY5x3crvOCko4uV5PM29ul3zGo1oBGNO3cDXx+7GHLKqt0gR9qzgThxb5",
   allowed_origins: "*",
   allow_crawlers: true,
-  pubsub: [name: Ret.PubSub, adapter: Phoenix.PubSub.PG2, pool_size: 4],
+  pubsub: [name: Ret.PubSub, adapter: Phoenix.PubSub.PG2, pool_size: 4]
   #server: false,
   #root: "."
 
