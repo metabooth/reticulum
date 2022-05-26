@@ -83,27 +83,27 @@ config :ret, Ret.Repo, adapter: Ecto.Adapters.Postgres, prepare: :unnamed
 
 config :ret, page_auth: [username: "", password: "", realm: "Reticulum"]
 
-config :ret, Ret.Scheduler,
-  jobs: [
-    # Send stats to StatsD every 5 seconds
-    {{:extended, "*/5 * * * *"}, {Ret.StatsJob, :send_statsd_gauges, []}},
+# config :ret, Ret.Scheduler,
+#   jobs: [
+#     # Send stats to StatsD every 5 seconds
+#     {{:extended, "*/5 * * * *"}, {Ret.StatsJob, :send_statsd_gauges, []}},
 
-    # Flush stats to db every 5 minutes
-    {{:cron, "*/5 * * * *"}, {Ret.StatsJob, :save_node_stats, []}},
+#     # Flush stats to db every 5 minutes
+#     {{:cron, "*/5 * * * *"}, {Ret.StatsJob, :save_node_stats, []}},
 
-    # Keep database warm when connected users
-    {{:cron, "*/3 * * * *"}, {Ret.DbWarmerJob, :warm_db_if_has_ccu, []}},
+#     # Keep database warm when connected users
+#     {{:cron, "*/3 * * * *"}, {Ret.DbWarmerJob, :warm_db_if_has_ccu, []}},
 
-    # Rotate TURN secrets if enabled
-    {{:cron, "*/5 * * * *"}, {Ret.Coturn, :rotate_secrets, []}},
+#     # Rotate TURN secrets if enabled
+#     {{:cron, "*/5 * * * *"}, {Ret.Coturn, :rotate_secrets, []}},
 
-    # Various maintenence routines
-    {{:cron, "0 10 * * *"}, {Ret.Storage, :vacuum, []}},
-    {{:cron, "3 10 * * *"}, {Ret.Storage, :demote_inactive_owned_files, []}},
-    {{:cron, "4 10 * * *"}, {Ret.LoginToken, :expire_stale, []}},
-    {{:cron, "6 10 * * *"}, {Ret.Hub, :vacuum_hosts, []}},
-    {{:cron, "7 10 * * *"}, {Ret.CachedFile, :vacuum, []}}
-  ]
+#     # Various maintenence routines
+#     {{:cron, "0 10 * * *"}, {Ret.Storage, :vacuum, []}},
+#     {{:cron, "3 10 * * *"}, {Ret.Storage, :demote_inactive_owned_files, []}},
+#     {{:cron, "4 10 * * *"}, {Ret.LoginToken, :expire_stale, []}},
+#     {{:cron, "6 10 * * *"}, {Ret.Hub, :vacuum_hosts, []}},
+#     {{:cron, "7 10 * * *"}, {Ret.CachedFile, :vacuum, []}}
+#   ]
 
 config :ret, RetWeb.Plugs.HeaderAuthorization, header_name: "x-ret-admin-access-key"
 
