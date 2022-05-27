@@ -26,10 +26,9 @@ config :ret, RetWeb.Endpoint,
     otp_app: :ret,
     # keyfile: "/home/lonycell/metabooth/.certs/key.pem",
     # certfile: "/home/lonycell/metabooth/.certs/cert.crt"
-    certfile = "/home/lonycell/metabooth/.certs/cert.one.pem"
-    cacertfile = "/home/lonycell/metabooth/.certs/ca-bundle.pem"
+    certfile = "/home/lonycell/metabooth/.certs/cert.one.pem",
+    cacertfile = "/home/lonycell/metabooth/.certs/ca-bundle.pem",
     keyfile = "/home/lonycell/metabooth/.certs/cert.key"
-
   ],
   url: [scheme: "https", host: host, port: 443],
   static_url: [scheme: "https", host: host, port: 443],
