@@ -38,6 +38,12 @@ defmodule RetWeb.Router do
     plug(:put_layout, false)
   end
 
+  #FIXME
+  pipeline :browser_for_benchmark do
+    plug(:accepts, ["html"])
+    plug(RetWeb.Plugs.Empty)
+  end
+
   pipeline :api do
     plug(:accepts, ["json"])
   end
@@ -215,36 +221,42 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    pipe_through([:strict_secure_headers, :parsed_body, :browser] ++ if(Mix.env() == :prod, do: [:ssl_only], else: []))
+    # pipe_through([:strict_secure_headers, :parsed_body, :browser] ++ if(Mix.env() == :prod, do: [:ssl_only], else: []))
 
-    head("/files/:id", FileController, :head)
-    get("/files/:id", FileController, :show)
+    # head("/files/:id", FileController, :head)
+    # get("/files/:id", FileController, :show)
   end
 
   scope "/", RetWeb do
-    pipe_through(
-      [:secure_headers, :parsed_body, :browser] ++
-        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-    )
+    # pipe_through(
+    #   [:secure_headers, :parsed_body, :browser] ++
+    #     if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
+    # )
 
-    get("/link", PageController, only: [:index])
+    # get("/link", PageController, only: [:index])
   end
 
   scope "/", RetWeb do
-    pipe_through(
-      [:secure_headers, :parsed_body, :browser, :rate_limit] ++
-        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-    )
+    # pipe_through(
+    #   [:secure_headers, :parsed_body, :browser, :rate_limit] ++
+    #     if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
+    # )
 
-    get("/link/*path", PageController, only: [:index])
+    # get("/link/*path", PageController, only: [:index])
   end
 
   scope "/", RetWeb do
-    pipe_through(
-      [:secure_headers, :parsed_body, :browser] ++
-        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-    )
+    # pipe_through(
+    #   [:secure_headers, :parsed_body, :browser] ++
+    #     if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
+    # )
 
-    get("/*path", PageController, only: [:index])
+    # get("/*path", PageController, only: [:index])
+  end
+
+  #FIXME
+  scope "/", RetWeb do
+    pipe_through :browser_for_benchmark
+    get("/", PageController, :index)
   end
 end
