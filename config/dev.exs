@@ -10,7 +10,7 @@ link_host = "hubs-link.local"
 # To run reticulum across a LAN for local testing, uncomment and change the line below to the LAN IP
 # host = cors_proxy_host = "192.168.1.27"
 
-dev_janus_host = "dev-janus.reticulum.io"
+dev_janus_host = "localhost"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -23,8 +23,9 @@ config :ret, RetWeb.Endpoint,
   static_url: [scheme: "https", host: host, port: 443],
   https: [
     port: 4000,
-    keyfile: "/home/lonycell/metabooth/.certs/key.pem",
-    certfile: "/home/lonycell/metabooth/.certs/cert.crt"
+    certfile: "/home/lonycell/metabooth/.certs/cert.one.pem",
+    cacertfile: "/home/lonycell/metabooth/.certs/ca-bundle.pem",
+    keyfile: "/home/lonycell/metabooth/.certs/cert.key"
   ],
   cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 443],
   assets_url: [scheme: "https", host: assets_host, port: 443],
