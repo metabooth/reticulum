@@ -1,5 +1,4 @@
 defmodule RetWeb.Router do
-  require Logger
   use RetWeb, :router
   use Plug.ErrorHandler
   use Sentry.Plug
@@ -15,7 +14,7 @@ defmodule RetWeb.Router do
   end
 
   pipeline :ssl_only do
-    plug(Plug.SSL, hsts: true, rewrite_on: [:x_forwarded_proto])
+    # plug(Plug.SSL, hsts: true, rewrite_on: [:x_forwarded_proto])
   end
 
   pipeline :parsed_body do
