@@ -249,7 +249,7 @@ defmodule RetWeb.Router do
     pipe_through(
       # [:secure_headers, :parsed_body, :browser] ++
       #   if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-      [:secure_headers, :parsed_body, :browser, :browser_for_benchmark]
+      [:secure_headers, :parsed_body, :browser]
     )
 
     #FIXME get("/*path", PageController, only: [:index])
