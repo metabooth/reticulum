@@ -149,17 +149,7 @@ config :ret, RetWeb.Plugs.AddCSP,
   media_src: asset_hosts,
   manifest_src: asset_hosts
 
-#CHANGEME: config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
-config :ret, Ret.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  tls: :always,
-  ssl: false,
-  server: "smtp.gmail.com",
-  port: "587",
-  username: "info.matabooth@gmail.com",
-  password: "!Qaz@Wsx",
-  tls: :allways,
-  retries: 2
+config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
 
 config :ret, RetWeb.Email, from: "lonycell@gmail.com"
 
