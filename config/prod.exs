@@ -20,6 +20,10 @@ assets_host = "www.pet-mom.club"
 link_host = "www.pet-mom.club"
 dev_janus_host = host
 
+#
+config :ret, Ret.Meta, phx_host: host
+
+#
 config :ret, RetWeb.Endpoint,
   https: [
     port: 4000,
