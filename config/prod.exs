@@ -23,13 +23,13 @@ dev_janus_host = host
 config :ret, RetWeb.Endpoint,
   https: [
     port: 4000,
-    #otp_app: :ret,
-    keyfile: "/home/lonycell/metabooth/.certs/key.pem",
-    certfile: "/home/lonycell/metabooth/.certs/cert.crt"
-  ],
-  http: [
-    port: 4001,
-    #otp_app: :ret
+    otp_app: :ret,
+    # keyfile: "/home/lonycell/metabooth/.certs/key.pem",
+    # certfile: "/home/lonycell/metabooth/.certs/cert.crt"
+    certfile = "/home/lonycell/metabooth/.certs/cert.one.pem"
+    cacertfile = "/home/lonycell/metabooth/.certs/ca-bundle.pem"
+    keyfile = "/home/lonycell/metabooth/.certs/cert.key"
+
   ],
   url: [scheme: "https", host: host, port: 443],
   static_url: [scheme: "https", host: host, port: 443],
@@ -162,4 +162,3 @@ config :ret, Ret.PageOriginWarmer,
   insecure_ssl: true
 
 config :ret, Ret.HttpUtils, insecure_ssl: true
-
