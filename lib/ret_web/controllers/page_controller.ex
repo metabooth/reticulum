@@ -38,10 +38,9 @@ defmodule RetWeb.PageController do
     link_host = RetWeb.Endpoint.config(:link_url)[:host]
     is_configurable_asset = @configurable_asset_paths |> Enum.any?(&(&1 === conn.request_path))
 
-    Logger.debug("FIXME: page call - assets_host:#{assets_host}")
+    Logger.debug("FIXME: page call - #{conn.request_path}")
 
     cond do
-      Logger.debug("FIXME: page call - #{conn.request_path}")
       matches_host(conn, assets_host) && !is_configurable_asset ->
         render_asset(conn)
 
