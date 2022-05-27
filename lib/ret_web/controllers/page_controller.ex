@@ -41,12 +41,12 @@ defmodule RetWeb.PageController do
     Logger.debug("FIXME: page call - assets_host:#{assets_host}")
 
     cond do
+      Logger.debug("FIXME: page call - #{conn.request_path}")
       matches_host(conn, assets_host) && !is_configurable_asset ->
         render_asset(conn)
 
       matches_host(conn, link_host) ->
         case conn.request_path do
-          Logger.debug("FIXME: page call - #{conn.request_path}")
           "/" -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link")
           _ -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link#{conn.request_path}")
         end
