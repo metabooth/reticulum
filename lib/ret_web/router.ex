@@ -40,7 +40,7 @@ defmodule RetWeb.Router do
 
   #FIXME
   pipeline :browser_for_benchmark do
-    plug(:accepts, ["html"])
+    plug(:accepts, ["*"])
     plug(RetWeb.Plugs.Empty)
   end
 
@@ -253,12 +253,11 @@ defmodule RetWeb.Router do
     )
 
     #FIXME get("/*path", PageController, only: [:index])
-    get("/", PageController, :index)
   end
 
   #FIXME
-  scope "/", RetWeb do
-    pipe_through([:browser_for_benchmark])
-    get("/", PageController, :index)
-  end
+  # scope "/", RetWeb do
+  #   pipe_through([:browser_for_benchmark])
+  #   get("/", PageController, :index)
+  # end
 end
