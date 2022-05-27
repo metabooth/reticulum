@@ -153,12 +153,12 @@ config :ret, RetWeb.Plugs.AddCSP,
 config :ret, Ret.Mailer,
   adapter: Bamboo.SMTPAdapter,
   tls: :always,
-  ssl: false,
+  ssl: true,
   server: "smtp.gmail.com",
   port: "587",
   username: "info.matabooth@gmail.com",
   password: "knpbffltymmjsqbg",
-  tls: :allways,
+  tls: :never,
   retries: 2
 
 config :ret, RetWeb.Email, from: "lonycell@gmail.com"
