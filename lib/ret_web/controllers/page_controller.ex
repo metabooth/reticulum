@@ -66,6 +66,9 @@ defmodule RetWeb.PageController do
   defp render_scene_content(%t{} = scene, conn) when t in [Scene, SceneListing] do
     {app_config, app_config_script} = generate_app_config()
 
+    Logger.debug("FIXME: page call - render_scene_content ...")
+
+
     scene_meta_tags =
       Phoenix.View.render_to_string(RetWeb.PageView, "scene-meta.html",
         scene: scene,
@@ -93,11 +96,14 @@ defmodule RetWeb.PageController do
   end
 
   defp render_scene_content(nil, conn) do
+    Logger.debug("FIXME: page call - render_scene_content ... 404")
     conn |> send_resp(404, "")
   end
 
   defp render_avatar_content(%t{} = avatar, conn) when t in [Avatar, AvatarListing] do
     {app_config, app_config_script} = generate_app_config()
+
+    Logger.debug("FIXME: page call - render_avatar_content ...")
 
     avatar_meta_tags =
       Phoenix.View.render_to_string(RetWeb.PageView, "avatar-meta.html",
@@ -126,11 +132,14 @@ defmodule RetWeb.PageController do
   end
 
   defp render_avatar_content(nil, conn) do
+    Logger.debug("FIXME: page call - render_avatar_content ... 404")
     conn |> send_resp(404, "")
   end
 
   defp render_homepage_content(conn, nil = _public_room_id) do
     {app_config, app_config_script} = generate_app_config()
+
+    Logger.debug("FIXME: page call - render_homepage_content ...")
 
     index_meta_tags =
       Phoenix.View.render_to_string(
@@ -164,11 +173,14 @@ defmodule RetWeb.PageController do
     do: render_homepage_content(conn, nil)
 
   defp render_homepage_content(conn, default_room_id) do
+    Logger.debug("FIXME: page call - render_homepage_content ... default_room_id:#{default_room_id}")
     hub = Hub |> Repo.get_by(hub_sid: default_room_id)
     conn |> render_hub_content(hub, "homepage")
   end
 
   def render_for_path("/", params, conn) do
+    Logger.debug("FIXME: page call - render_for_path / ...")
+
     if !Enum.empty?(params) || Ret.Account.has_accounts?() do
       conn |> render_index
     else
@@ -298,6 +310,7 @@ defmodule RetWeb.PageController do
   end
 
   def render_for_path("/admin", _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /admin ...")
     conn |> render_page("admin.html", :admin)
   end
 
@@ -366,17 +379,20 @@ defmodule RetWeb.PageController do
   end
 
   defp render_index(conn) do
+    Logger.debug("FIXME: page call - render_index ...")
     method = conn |> get_req_header("x-original-method") |> Enum.at(0)
     conn |> render_index(method)
   end
 
   defp render_index(conn, "HEAD") do
+    Logger.debug("FIXME: page call - render_index HEAD ...")
     conn
     |> put_hub_headers("hub")
     |> send_resp(200, "")
   end
 
   defp render_index(conn, _method) do
+    Logger.debug("FIXME: page call - render_index _method ...")
     conn |> render_homepage_content(get_app_config_value("features|default_room_id"))
   end
 
