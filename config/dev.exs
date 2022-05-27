@@ -1,9 +1,9 @@
 use Mix.Config
 
 host = "www.pet-mom.club"
-cors_proxy_host = "www.pet-mom.club"
-assets_host = "www.pet-mom.club"
-link_host = "www.pet-mom.club"
+cors_proxy_host = "hubs.local"
+assets_host = "hubs.local"
+link_host = "hubs.local"
 
 dev_janus_host = "localhost"
 
@@ -16,10 +16,10 @@ config :ret, RetWeb.Endpoint,
     cacertfile: "/home/lonycell/metabooth/.certs/ca-bundle.pem",
     keyfile: "/home/lonycell/metabooth/.certs/cert.key"
   ],
-  cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 8080],
-  assets_url: [scheme: "https", host: assets_host, port: 8080],
-  link_url: [scheme: "https", host: link_host, port: 8080],
-  imgproxy_url: [scheme: "https", host: assets_host, port: 8080],
+  cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 443],
+  assets_url: [scheme: "https", host: assets_host, port: 443],
+  link_url: [scheme: "https", host: link_host, port: 443],
+  imgproxy_url: [scheme: "https", host: assets_host, port: 443],
   debug_errors: true,
   code_reloader: true,
   check_origin: true,
