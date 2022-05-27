@@ -3,8 +3,7 @@ defmodule RetWeb.Plugs.Empty do
 
   def init([]), do: []
 
-  def call(%Conn{method: "HEAD"} = conn, []) do
-    call(conn, _opts) do
+  def call(conn, _opts) do
       conn
       |> Plug.Conn.send_resp(200, [])
       |> Plug.Conn.halt()
