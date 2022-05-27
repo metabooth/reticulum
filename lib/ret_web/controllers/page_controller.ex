@@ -1,4 +1,5 @@
 defmodule RetWeb.PageController do
+  require Logger
   use RetWeb, :controller
 
   alias Ret.{
@@ -36,6 +37,8 @@ defmodule RetWeb.PageController do
     assets_host = RetWeb.Endpoint.config(:assets_url)[:host]
     link_host = RetWeb.Endpoint.config(:link_url)[:host]
     is_configurable_asset = @configurable_asset_paths |> Enum.any?(&(&1 === conn.request_path))
+
+    Logger.debug("FIXME: page call - assets_host:#{assets_host}")
 
     cond do
       matches_host(conn, assets_host) && !is_configurable_asset ->
