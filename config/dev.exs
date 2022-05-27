@@ -149,17 +149,22 @@ config :ret, RetWeb.Plugs.AddCSP,
   media_src: asset_hosts,
   manifest_src: asset_hosts
 
-#CHANGEME: config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
-config :ret, Ret.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  tls: :always,
-  ssl: false,
-  server: "smtp.gmail.com",
-  port: "587",
-  username: "info.matabooth@gmail.com",
-  password: "knpbffltymmjsqbg",
-  tls: :never,
-  retries: 2
+#FIXME config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
+#FIXME config :ret, Ret.Mailer,
+#   adapter: Bamboo.SMTPAdapter,
+#   tls: :always,
+#   ssl: false,
+#   server: "smtp.gmail.com",
+#   port: "587",
+#   username: "info.matabooth@gmail.com",
+#   password: "knpbffltymmjsqbg",
+#   tls: :never,
+#   retries: 2
+config :ret, Ret.Mailer, adapter: Bamboo.GmailAdaptor,
+  sub: "info.matabooth@gmail.com",
+  sandbox: false
+
+config :goth, json: ( "config/creds-gmail.json" |> File.read! )
 
 config :ret, RetWeb.Email, from: "lonycell@gmail.com"
 

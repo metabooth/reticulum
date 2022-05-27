@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "metabooth-notice-pub",
+  "private_key_id": "de7d876507b2f1d8f1c737f8923cacdb85b86074",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2Dpsfj19TZHh3\nUKuvJqZ3E/tjtnYOfRFrbOFkiG/ESGC6hOLX927p6kggGuh8mnbmuIU2vmZBftPQ\ngE3OL67M3sTro0k07qrOkb3AE7xhtKM4BuWHelBGJztTnDS/MwCx1dIsqliqy+s/\nWBjNrVC9pAe1OzR61KrriyMxRWO9HauFqrJazZf6z1Cla0mYUSU/exy9nepw4Yh0\nS/NP7qkTJioWdwQ4UNPSxeMaFbGsto+VBkV3uxucDfd+uTYBD0UZ4mQF/krR+JhN\nGe50X3A3HfxtQOb7xSLqTKOkyVK+dJ8xzNH0Wb6ko+NieYVQ7yG+bbPpFDq4vMZI\nFwJ+xLKfAgMBAAECggEANC3ggP2nLTAVJOFeq58ww91axlvz3zgyZ2839If0PLYf\n3yWaHJsC05E95dHAg4IEBSGqsKOGjEwM6mvzoN5iw74vg3fz0fN7yiPUVjpx2jEb\nPMIhRCCm5Ex3QQH6zjgQgWfOytVx/1Xd0XRu+3gqtYfPW76hzniomkTxK7x/FyLu\nWxKfA0O4yBz/uEXBDQJggVUyvobAMfCom6PmpsoCI0ZzUHVp1m4ucqtuYKHH61fm\nFVW26gIHF9OCKSDlCQBGTicA2ltobBz8OLan/0iTyiEcRj3hu9sPzCA+Gh6fafD5\nldM8KbbhNj2j2QMnlKg1t5s9QlL766AC5DhfYuXwNQKBgQD4npcikHLZQX8PJjw7\nlMWTR//tuEA2oVf+kg07Uz3XqFhk5vVAHuQKSieoASOfA7nt+SrfiEDRGEeXZPsw\najBSD/WgZqB/NU58DCMrdzSabxqiT6xkVYVRys2BtdMPusaKdFvo5ix1D5/blEOV\nWn56kLyWiDfCbtu4/EqfoSCMHQKBgQC7dirb+KDki+sY1L81/apPZmCgZbyT2R7U\nb+JS57aot5oWgs3cAbXTnUSEdh4z7UAFUnQ+bAik+Ohme97FIeqXVk+kcPoBx7MD\nKPxCEr2xdQ4J18U1AHnXFwhP3XBXyneQkaBW4p47WFB0LJ5eQD5s1dcLyg9dLdah\n4gbtk/Ak6wKBgQDoWFXIIJSkgvg6cTIzQFrQxKXiRKIGLAyvRVEGU0nlRFevnMQw\nc24MS7b55G6kyfe19Xliw9RHVNh7HQ0+9s5HstCLYb22hFvfw/wOP+4yMYkDjU//\nyIi6orwh74nbFmM7u3i1lH6Ru9NagxoR9ytiYedNCuqJU88V9vnKauue5QKBgFEM\nmyU2DuIheIjo2q8OOIdRvS88LVdDBWhV42Vy12+EyjM3ZKfdeW6/zTL0GsTaq9Zh\nOu8OKIKjN1+v6LYUnufFonN3gTAp1kTkgIRUs/04ndQ1nQb4aLVNOQPGut7KI/22\naLuICV+hJE/GRsZ7QkIuBmcLeq8PtX+SSOqJDsf3AoGBAMNwfLB8T1JdH0cKpbPW\nTuhfoFcZfQ/giHqkPmuwj1OQg2beOjzkF3bJaxQV2+DycowFFbhVIZf2uAcwbon+\nRdUHmPOl59DaG5sCO1KaPZ9X1uLNn/l9tuKPn4hx7cNBXq9JLai/BvpjIdhBkzw6\nneGct9rKcOnFFVQ7FRyiyOvo\n-----END PRIVATE KEY-----\n",
+  "client_email": "metabooth-gmail-sender@metabooth-notice-pub.iam.gserviceaccount.com",
+  "client_id": "105894458387597730689",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/metabooth-gmail-sender%40metabooth-notice-pub.iam.gserviceaccount.com"
+}
