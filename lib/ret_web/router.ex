@@ -6,7 +6,7 @@ defmodule RetWeb.Router do
 
   pipeline :secure_headers do
     plug(:put_secure_browser_headers)
-    #FIXME: plug(RetWeb.Plugs.AddCSP)
+    plug(RetWeb.Plugs.AddCSP)
   end
 
   pipeline :strict_secure_headers do
