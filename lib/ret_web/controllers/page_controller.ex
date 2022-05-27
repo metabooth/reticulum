@@ -212,20 +212,17 @@ defmodule RetWeb.PageController do
 
   def render_for_path("/link", _params, conn),
     do:
-      Logger.debug("FIXME: page call - render_for_path /link ...")
       conn
       |> put_hub_headers("hub")
       |> render_page("link.html", :hubs, "link-meta.html")
 
   def render_for_path("/link/", _params, conn),
     do:
-      Logger.debug("FIXME: page call - render_for_path /link/ ...")
       conn
       |> put_hub_headers("hub")
       |> render_page("link.html", :hubs, "link-meta.html")
 
   def render_for_path("/link/" <> hub_sid_and_slug, _params, conn) do
-    Logger.debug("FIXME: page call - render_for_path /link/<>#{hub_sid_and_slug} ...")
     hub_sid = hub_sid_and_slug |> String.split("/") |> List.first()
 
     conn
