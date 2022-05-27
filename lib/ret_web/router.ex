@@ -221,44 +221,42 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    # pipe_through([:strict_secure_headers, :parsed_body, :browser] ++ if(Mix.env() == :prod, do: [:ssl_only], else: []))
+    pipe_through([:strict_secure_headers, :parsed_body, :browser] ++ if(Mix.env() == :prod, do: [:ssl_only], else: []))
 
-    # head("/files/:id", FileController, :head)
-    # get("/files/:id", FileController, :show)
-  end
-
-  scope "/", RetWeb do
-    # pipe_through(
-    #   [:secure_headers, :parsed_body, :browser] ++
-    #     if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-    # )
-
-    # get("/link", PageController, only: [:index])
-  end
-
-  scope "/", RetWeb do
-    # pipe_through(
-    #   [:secure_headers, :parsed_body, :browser, :rate_limit] ++
-    #     if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-    # )
-
-    # get("/link/*path", PageController, only: [:index])
+    head("/files/:id", FileController, :head)
+    get("/files/:id", FileController, :show)
   end
 
   scope "/", RetWeb do
     pipe_through(
-      # [:secure_headers, :parsed_body, :browser] ++
-      #   if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
-      [:secure_headers, :parsed_body, :browser]
+      [:secure_headers, :parsed_body, :browser] ++
+        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
     )
 
-    #FIXME get("/*path", PageController, only: [:index])
-    get("/", PageController, :index)
+    get("/link", PageController, only: [:index])
   end
 
-  #FIXME
-  # scope "/", RetWeb do
-  #   pipe_through([:browser_for_benchmark])
-  #   get("/", PageController, :index)
-  # end
+  scope "/", RetWeb do
+    pipe_through(
+      [:secure_headers, :parsed_body, :browser, :rate_limit] ++
+        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
+    )
+
+    get("/link/*path", PageController, only: [:index])
+  end
+
+  scope "/", RetWeb do
+    pipe_through(
+      [:secure_headers, :parsed_body, :browser] ++
+        if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
+    )
+
+    get("/*path", PageController, only: [:index])
+  end
+
+  FIXME
+  scope "/", RetWeb do
+    pipe_through([:browser_for_benchmark])
+    get("/", PageController, :index)
+  end
 end
