@@ -1,6 +1,4 @@
 defmodule RetWeb.Plugs.AddCSP do
-  require Logger
-
   @customizable_rule_types [
     :script_src,
     :font_src,
@@ -18,8 +16,6 @@ defmodule RetWeb.Plugs.AddCSP do
   def init(default), do: default
 
   def call(conn, options) do
-    Logger.debug("RetWeb.Plugs.AddCSP +++")
-
     strict = !!options[:strict]
     cache_key = %{type: :csp, strict: strict}
 
@@ -50,8 +46,6 @@ defmodule RetWeb.Plugs.AddCSP do
     else
       conn_with_csp
     end
-
-    Logger.debug("RetWeb.Plugs.AddCSP ---")
   end
 
   defp generate_csp(options) do

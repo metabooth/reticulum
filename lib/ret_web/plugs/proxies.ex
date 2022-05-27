@@ -1,6 +1,7 @@
 defmodule RetWeb.Plugs.PostgrestProxy do
   use Plug.Builder
-  plug ReverseProxyPlug, upstream: "http://localhost:3000"
+  #FIXME plug ReverseProxyPlug, upstream: "http://localhost:3000"
+  plug ReverseProxyPlug, upstream: "http://localhost:3001"
 end
 
 defmodule RetWeb.Plugs.ItaProxy do
