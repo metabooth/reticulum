@@ -1,28 +1,18 @@
 use Mix.Config
 
-# NOTE: this file contains some security keys/certs that are *not* secrets, and are only used for local development purposes.
-
 host = "www.pet-mom.club"
-cors_proxy_host = "hubs-proxy.local"
-assets_host = "hubs-assets.local"
-link_host = "hubs-link.local"
-
-# To run reticulum across a LAN for local testing, uncomment and change the line below to the LAN IP
-# host = cors_proxy_host = "192.168.1.27"
+cors_proxy_host = "www.pet-mom.club"
+assets_host = "www.pet-mom.club"
+link_host = "www.pet-mom.club"
 
 dev_janus_host = "localhost"
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with brunch.io to recompile .js and .css sources.
 config :ret, RetWeb.Endpoint,
   url: [scheme: "https", host: host, port: 443],
   static_url: [scheme: "https", host: host, port: 443],
   https: [
     port: 4000,
+    otp_app: :ret,
     certfile: "/home/lonycell/metabooth/.certs/cert.one.pem",
     cacertfile: "/home/lonycell/metabooth/.certs/ca-bundle.pem",
     keyfile: "/home/lonycell/metabooth/.certs/cert.key"
@@ -66,16 +56,11 @@ config :ret, RetWeb.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
-
-# Set a higher stacktrace during development. Avoid configuring such
-# in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
 env_db_host = "#{System.get_env("DB_HOST")}"
 
-# Configure your database
 config :ret, Ret.Repo,
   username: "postgres",
   password: "postgres",
@@ -114,11 +99,9 @@ config :ret, RetWeb.Api.V1.WhatsNewController, token: ""
 
 config :ret, RetWeb.Plugs.DashboardHeaderAuthorization, dashboard_access_key: ""
 
-# Allow any origin for API access in dev
 config :cors_plug, origin: ["*"]
 
 config :ret,
-  # This config value is for local development only.
   upload_encryption_key: "a8dedeb57adafa7821027d546f016efef5a501bd",
   bot_access_key: ""
 
@@ -222,3 +205,5 @@ config :ret, Ret.Locking,
 config :ret, Ret.Repo.Migrations.AdminSchemaInit, postgrest_password: "password"
 config :ret, Ret.StatsJob, node_stats_enabled: false, node_gauges_enabled: false
 config :ret, Ret.Coturn, realm: "ret"
+
+config :ret, Ret.Account, admin_email: "lonycell@gmail.com"

@@ -1,6 +1,5 @@
 defmodule RetWeb.Plugs.Empty do
   require Logger
-  alias Plug.Conn
 
   def init([]), do: []
 

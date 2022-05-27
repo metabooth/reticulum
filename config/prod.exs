@@ -27,7 +27,7 @@ config :ret, Ret.Meta, phx_host: host
 config :ret, RetWeb.Endpoint,
   https: [
     port: 4000,
-    # otp_app: :ret,
+    otp_app: :ret,
     # keyfile: "/home/lonycell/metabooth/.certs/key.pem",
     # certfile: "/home/lonycell/metabooth/.certs/cert.crt"
     certfile: "/home/lonycell/metabooth/.certs/cert.one.pem",
