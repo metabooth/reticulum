@@ -41,15 +41,19 @@ defmodule RetWeb.PageController do
     Logger.debug("FIXME: page call - #{conn.request_path}")
 
     cond do
+
+      Logger.debug("FIXME: page call - #{conn.request_path} #1")
       matches_host(conn, assets_host) && !is_configurable_asset ->
         render_asset(conn)
 
+      Logger.debug("FIXME: page call - #{conn.request_path} #2")
       matches_host(conn, link_host) ->
         case conn.request_path do
           "/" -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link")
           _ -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link#{conn.request_path}")
         end
 
+      Logger.debug("FIXME: page call - #{conn.request_path} #3")
       true ->
         case conn.request_path do
           "/docs" -> conn |> redirect(to: "/docs/welcome.html")
