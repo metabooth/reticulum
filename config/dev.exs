@@ -157,7 +157,7 @@ config :ret, Ret.Mailer,
   server: "smtp.gmail.com",
   port: "587",
   username: "info.matabooth@gmail.com",
-  password: "!Qaz@Wsx",
+  password: "knpbffltymmjsqbg",
   tls: :allways,
   retries: 2
 
