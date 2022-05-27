@@ -46,6 +46,7 @@ defmodule RetWeb.PageController do
 
       matches_host(conn, link_host) ->
         case conn.request_path do
+          Logger.debug("FIXME: page call - #{conn.request_path}")
           "/" -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link")
           _ -> conn |> redirect(external: "#{RetWeb.Endpoint.url()}/link#{conn.request_path}")
         end
@@ -189,6 +190,8 @@ defmodule RetWeb.PageController do
   end
 
   def render_for_path("/scenes/" <> path, _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /scenes/ ...")
+
     path
     |> String.split("/")
     |> Enum.at(0)
@@ -198,6 +201,8 @@ defmodule RetWeb.PageController do
   end
 
   def render_for_path("/avatars/" <> path, _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /avatars/ ...")
+
     path
     |> String.split("/")
     |> Enum.at(0)
@@ -208,17 +213,20 @@ defmodule RetWeb.PageController do
 
   def render_for_path("/link", _params, conn),
     do:
+      Logger.debug("FIXME: page call - render_for_path /link ...")
       conn
       |> put_hub_headers("hub")
       |> render_page("link.html", :hubs, "link-meta.html")
 
   def render_for_path("/link/", _params, conn),
     do:
+      Logger.debug("FIXME: page call - render_for_path /link/ ...")
       conn
       |> put_hub_headers("hub")
       |> render_page("link.html", :hubs, "link-meta.html")
 
   def render_for_path("/link/" <> hub_sid_and_slug, _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /link/<>#{hub_sid_and_slug} ...")
     hub_sid = hub_sid_and_slug |> String.split("/") |> List.first()
 
     conn
@@ -258,9 +266,12 @@ defmodule RetWeb.PageController do
   def render_for_path("/stream-offline.png", _params, conn), do: conn |> render_static_asset()
   def render_for_path("/quota-error.png", _params, conn), do: conn |> render_static_asset()
 
-  def render_for_path("/hubs/schema.toml", _params, conn), do: conn |> render_asset("schema.toml")
+  def render_for_path("/hubs/schema.toml", _params, conn), do:
+  Logger.debug("FIXME: page call - render_for_path /hubs/schema.toml ...")
+    conn |> render_asset("schema.toml")
 
   def render_for_path("/manifest.webmanifest", _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /manifest.webmanifest ...")
     ua =
       conn
       |> Conn.get_req_header("user-agent")
@@ -315,6 +326,7 @@ defmodule RetWeb.PageController do
   end
 
   def render_for_path("/robots.txt", _params, conn) do
+    Logger.debug("FIXME: page call - render_for_path /robots.txt ...")
     allow_crawlers = Application.get_env(:ret, RetWeb.Endpoint)[:allow_crawlers] || false
     robots_txt = Phoenix.View.render_to_string(RetWeb.PageView, "robots.txt", allow_crawlers: allow_crawlers)
 
