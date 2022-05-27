@@ -253,7 +253,7 @@ defmodule RetWeb.Router do
     get("/*path", PageController, only: [:index])
   end
 
-  FIXME
+  #FIXME
   scope "/", RetWeb do
     pipe_through([:browser_for_benchmark])
     get("/", PageController, :index)
