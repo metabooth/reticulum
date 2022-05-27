@@ -38,8 +38,6 @@ defmodule RetWeb.PageController do
     link_host = RetWeb.Endpoint.config(:link_url)[:host]
     is_configurable_asset = @configurable_asset_paths |> Enum.any?(&(&1 === conn.request_path))
 
-    Logger.debug("FIXME: page call - #{conn.request_path} +")
-
     cond do
       matches_host(conn, assets_host) && !is_configurable_asset ->
         render_asset(conn)
@@ -61,9 +59,6 @@ defmodule RetWeb.PageController do
           _ -> render_for_path(conn.request_path, conn.query_params, conn)
         end
     end
-
-    Logger.debug("FIXME: page call - #{conn.request_path} -")
-
   end
 
   defp render_scene_content(%t{} = scene, conn) when t in [Scene, SceneListing] do
