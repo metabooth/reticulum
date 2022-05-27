@@ -9,7 +9,6 @@ git pull
 (lsof -ti:4000) && kill -9 $(lsof -ti:4000)
 MIX_ENV=prod mix release --overwrite
 PORT=4000 MIX_ENV=prod elixir --erl "-detached" -S mix phx.server
-sudo systemctl start hubs-postgrest
 
 sleep 3
 
