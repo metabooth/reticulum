@@ -215,7 +215,6 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    Logger.debug("FIXME: / #1")
     pipe_through([:strict_secure_headers, :parsed_body, :browser] ++ if(Mix.env() == :prod, do: [:ssl_only], else: []))
 
     head("/files/:id", FileController, :head)
@@ -223,7 +222,6 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    Logger.debug("FIXME: / #2")
     pipe_through(
       [:secure_headers, :parsed_body, :browser] ++
         if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
@@ -233,7 +231,6 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    Logger.debug("FIXME: / #3")
     pipe_through(
       [:secure_headers, :parsed_body, :browser, :rate_limit] ++
         if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])
@@ -243,7 +240,6 @@ defmodule RetWeb.Router do
   end
 
   scope "/", RetWeb do
-    Logger.debug("FIXME: / #4")
     pipe_through(
       [:secure_headers, :parsed_body, :browser] ++
         if(Mix.env() == :prod, do: [:ssl_only, :canonicalize_domain], else: [])

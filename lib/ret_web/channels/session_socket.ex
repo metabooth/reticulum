@@ -1,4 +1,5 @@
 defmodule RetWeb.SessionSocket do
+  require Logger
   use Phoenix.Socket
 
   channel("ret", RetWeb.RetChannel)
@@ -11,6 +12,7 @@ defmodule RetWeb.SessionSocket do
   end
 
   def connect(%{"session_token" => session_token}, socket) do
+    Logger.debug("FIXME: sessionSocket:connect ... #1")
     socket =
       socket
       |> assign(:session_id, session_token |> session_id_for_token || generate_session_id())
@@ -20,6 +22,7 @@ defmodule RetWeb.SessionSocket do
   end
 
   def connect(%{}, socket) do
+    Logger.debug("FIXME: sessionSocket:connect ... #2")
     socket =
       socket
       |> assign(:session_id, generate_session_id())

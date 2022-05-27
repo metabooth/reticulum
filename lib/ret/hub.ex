@@ -7,6 +7,7 @@ defmodule Ret.Hub.HubSlug do
 end
 
 defmodule Ret.Hub do
+  require Logger
   use Ecto.Schema
   use Bitwise
 
@@ -135,6 +136,8 @@ defmodule Ret.Hub do
   #       It would be good to revisit this and the alternatives below
   #       so that there did not need to be as many variations.
   def create_room(params, account_or_nil) do
+    Logger.debug("FIXME: create_room ...")
+
     with {:ok, params} <- parse_member_permissions(params) do
       params =
         Map.merge(
