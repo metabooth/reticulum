@@ -114,7 +114,7 @@ config :ret, Ret.Mailer,
 
 config :ret, Ret.Guardian, issuer: "ret", ttl: {12, :weeks}, allowed_drift: 60 * 1000
 
-config :tzdata, :autoupdate, :disabled
+config :tzdata, :autoupdate, :enabled
 
 #TODO
 config :sentry,
