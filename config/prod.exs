@@ -145,19 +145,32 @@ config :ret, Ret.StatsJob, node_stats_enabled: false, node_gauges_enabled: false
 config :ret, RetWeb.HealthController, check_repo: false
 
 #
-config :ret, Ret.Storage,
-  #host: "https://#{host}:4000",
-  storage_path: "storage/dev",
-  ttl: 60 * 60 * 24
-
-#
 config :ret, Ret.JanusLoadStatus, default_janus_host: dev_janus_host, janus_port: 4443
 
 #
-config :ret, Ret.PageOriginWarmer,
-  hubs_page_origin: "https://#{host}:8080",
-  admin_page_origin: "https://#{host}:8989",
-  spoke_page_origin: "https://#{host}:9090",
-  insecure_ssl: true
+config :ret, Ret.Storage,
+  host: "https://#{host}:4000",
+  storage_path: "storage/dev",
+  ttl: 60 * 60 * 24
 
-config :ret, Ret.HttpUtils, insecure_ssl: true
+asset_hosts =
+  "https://localhost:4000 https://localhost:8080 " <>
+    "https://#{host}:4000 https://#{host}:8080 https://#{host}:3000 https://#{host}:8989 https://#{host}:9090 https://#{
+      cors_proxy_host
+    }:4000 " <>
+    "https://assets-prod.reticulum.io https://asset-bundles-dev.reticulum.io https://asset-bundles-prod.reticulum.io"
+
+websocket_hosts =
+  "https://localhost:4000 https://localhost:8080 wss://localhost:4000 " <>
+    "https://#{host}:4000 https://#{host}:8080 wss://#{host}:4000 wss://#{host}:8080 wss://#{host}:8989 wss://#{host}:9090 " <>
+    "wss://#{host}:4000 wss://#{host}:8080 https://#{host}:8080 https://hubs.local:8080 wss://hubs.local:8080"
+
+config :ret, RetWeb.Plugs.AddCSP,
+  script_src: asset_hosts,
+  font_src: asset_hosts,
+  style_src: asset_hosts,
+  connect_src:
+    "https://#{host}:8080 https://sentry.prod.mozaws.net #{asset_hosts} #{websocket_hosts} https://www.mozilla.org",
+  img_src: asset_hosts,
+  media_src: asset_hosts,
+  manifest_src: asset_hosts
