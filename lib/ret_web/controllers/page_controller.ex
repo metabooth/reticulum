@@ -262,12 +262,10 @@ defmodule RetWeb.PageController do
   def render_for_path("/stream-offline.png", _params, conn), do: conn |> render_static_asset()
   def render_for_path("/quota-error.png", _params, conn), do: conn |> render_static_asset()
 
-  def render_for_path("/hubs/schema.toml", _params, conn), do:
-  Logger.debug("FIXME: page call - render_for_path /hubs/schema.toml ...")
-    conn |> render_asset("schema.toml")
+  def render_for_path("/hubs/schema.toml", _params, conn), do: conn |> render_asset("schema.toml")
 
   def render_for_path("/manifest.webmanifest", _params, conn) do
-    Logger.debug("FIXME: page call - render_for_path /manifest.webmanifest ...")
+    Logger.debug("FIXME: page call - /manifest.webmanifes")
     ua =
       conn
       |> Conn.get_req_header("user-agent")
