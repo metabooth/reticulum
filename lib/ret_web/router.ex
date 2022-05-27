@@ -253,6 +253,7 @@ defmodule RetWeb.Router do
     )
 
     #FIXME get("/*path", PageController, only: [:index])
+    get("/", PageController, :index)
   end
 
   #FIXME
