@@ -11,10 +11,10 @@ defmodule RetWeb.Endpoint do
 
   def allowed_origin?(%URI{host: host, port: port, scheme: scheme}) do
     if get_cors_origins() === ["*"] do
-      Logger.info("allowed_origin --> *")
+      Logger.debug("allowed_origin --> *")
       true
     else
-      Logger.info("allowed_origin --> ?")
+      Logger.debug("allowed_origin --> ?")
       get_cors_origin_urls() |> Enum.any?(&(&1.host == host && &1.port == port && &1.scheme == scheme))
     end
   end
@@ -48,7 +48,7 @@ defmodule RetWeb.Endpoint do
   configuration should be loaded from the system environment.
   """
   def init(_key, config) do
-    
+
     Logger.debug("FIXME: Init Endpoint ...")
 
     if config[:load_from_system_env] do
