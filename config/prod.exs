@@ -117,13 +117,13 @@ config :ret, Ret.Guardian, issuer: "ret", ttl: {12, :weeks}, allowed_drift: 60 *
 config :tzdata, :autoupdate, :disabled
 
 #TODO
-# config :sentry,
-#   environment_name: :prod,
-#   json_library: Poison,
-#   included_environments: [:prod],
-#   tags: %{
-#     env: "prod"
-#   }
+config :sentry,
+  environment_name: :prod,
+  json_library: Poison,
+  included_environments: [:prod],
+  tags: %{
+    env: "prod"
+  }
 
 config :ret, Ret.RoomAssigner, balancer_weights: [{600, 1}, {300, 50}, {0, 500}]
 
