@@ -1,5 +1,4 @@
 defmodule RetWeb.Endpoint do
-  require Logger
   use Phoenix.Endpoint, otp_app: :ret
   use Sentry.Phoenix.Endpoint
   use Absinthe.Phoenix.Endpoint
@@ -11,10 +10,8 @@ defmodule RetWeb.Endpoint do
 
   def allowed_origin?(%URI{host: host, port: port, scheme: scheme}) do
     if get_cors_origins() === ["*"] do
-      Logger.debug("allowed_origin --> *")
       true
     else
-      Logger.debug("allowed_origin --> ?")
       get_cors_origin_urls() |> Enum.any?(&(&1.host == host && &1.port == port && &1.scheme == scheme))
     end
   end

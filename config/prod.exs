@@ -40,7 +40,7 @@ config :ret, RetWeb.Endpoint,
   code_reloader: false,
   check_origin: false,
   secret_key_base: "txlMOtlaY5x3crvOCko4uV5PM29ul3zGo1oBGNO3cDXx+7GHLKqt0gR9qzgThxb5",
-  allowed_origins: "*",
+  allowed_origins: "*,www.pet-mom.club,pet-mom.club,hubs.local,localhost",
   allow_crawlers: true,
   pubsub: [name: Ret.PubSub, adapter: Phoenix.PubSub.PG2, pool_size: 4]
   #server: false,
