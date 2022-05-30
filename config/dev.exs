@@ -150,7 +150,6 @@ config :ret, RetWeb.Plugs.AddCSP,
   manifest_src: asset_hosts
 
 #FIXME config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
-
 config :ret, Ret.Mailer,
   adapter: Bamboo.SMTPAdapter,
   tls: :if_available,
@@ -158,12 +157,9 @@ config :ret, Ret.Mailer,
   auth: :always,
   server: "smtp.gmail.com",
   port: "587",
-  #port: "465",
   username: "info.matabooth@gmail.com",
-  #password: "knpbffltymmjsqbg",
   password: "!Qaz@Wsx",
   retries: 3
-
 # config :ret, Ret.Mailer, adapter: Bamboo.GmailAdaptor,
 #   sub: "info.matabooth@gmail.com",
 #   sandbox: false

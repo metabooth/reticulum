@@ -1,5 +1,6 @@
 defmodule RetWeb.RetChannel do
   @moduledoc "Global comms channel for reticulum cluster"
+  require Logger
 
   use RetWeb, :channel
 
@@ -30,6 +31,8 @@ defmodule RetWeb.RetChannel do
   end
 
   def handle_in("refresh_perms_token", _params, socket) do
+    Logger.debug("FIXME: RetWeb.RetChannel - refresh_perms_token")
+
     account = Guardian.Phoenix.Socket.current_resource(socket)
 
     perms = Account.get_global_perms_for_account(account)
