@@ -31,10 +31,10 @@ defmodule RetWeb.RetChannel do
   end
 
   def handle_in("refresh_perms_token", _params, socket) do
-    Logger.debug("FIXME: RetWeb.RetChannel - refresh_perms_token")
-
+    Logger.debug("FIXME: RetWeb.RetChannel - refresh_perms_token - get account")
     account = Guardian.Phoenix.Socket.current_resource(socket)
 
+    Logger.debug("FIXME: RetWeb.RetChannel - refresh_perms_token - get perms")
     perms = Account.get_global_perms_for_account(account)
 
     perms =
@@ -43,6 +43,8 @@ defmodule RetWeb.RetChannel do
       else
         perms
       end
+
+    Logger.debug("FIXME: RetWeb.RetChannel - refresh_perms_token - get perms token")
 
     perms_token = perms |> Ret.PermsToken.token_for_perms()
 
