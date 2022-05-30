@@ -97,11 +97,13 @@ defmodule RetWeb.Router do
     get("/", HealthController, :index)
   end
 
+  # FIXME: PostgREST (proxy)
   scope "/api/postgrest" do
     pipe_through([:secure_headers, :auth_required, :admin_required, :proxy_api])
     forward("/", RetWeb.Plugs.PostgrestProxy)
   end
 
+  # FIXME: ITA (proxy)
   scope "/api/ita" do
     pipe_through([:secure_headers, :auth_required, :admin_required, :proxy_api])
     forward("/", RetWeb.Plugs.ItaProxy)
