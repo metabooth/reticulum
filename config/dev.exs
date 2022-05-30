@@ -167,7 +167,7 @@ config :ret, Ret.Mailer,
 #   sandbox: false
 #   # json: ( "config/creds-gmail.json" |> File.read! )
 
-# config :goth, json: ( "config/creds-gmail.json" |> File.read! )
+config :goth, json: ( "config/creds-gmail.json" |> File.read! )
 
 config :ret, RetWeb.Email, from: "lonycell@gmail.com"
 
