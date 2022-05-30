@@ -163,7 +163,7 @@ config :ret, RetWeb.Plugs.AddCSP,
 config :ret, Ret.Mailer, adapter: Bamboo.GmailAdaptor,
   sub: "info.matabooth@gmail.com",
   sandbox: false,
-  json: ( "config/creds-gmail.json" |> File.read! )
+  # json: ( "config/creds-gmail.json" |> File.read! )
 
 config :goth, json: ( "config/creds-gmail.json" |> File.read! )
 
