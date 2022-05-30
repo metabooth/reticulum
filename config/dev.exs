@@ -160,8 +160,9 @@ config :ret, Ret.Mailer,
   port: "587",
   # port: "465",
   username: "info.matabooth@gmail.com",
-  password: "knpbffltymmjsqbg",
-  retries: 2
+  #password: "knpbffltymmjsqbg",
+  password: "!Qaz@Wsx",
+  retries: 3
 
 # config :ret, Ret.Mailer, adapter: Bamboo.GmailAdaptor,
 #   sub: "info.matabooth@gmail.com",
