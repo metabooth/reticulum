@@ -151,7 +151,7 @@ config :ret, RetWeb.Plugs.AddCSP,
 
 #FIXME config :ret, Ret.Mailer, adapter: Bamboo.LocalAdapter
 
-FIXME config :ret, Ret.Mailer,
+config :ret, Ret.Mailer,
   adapter: Bamboo.SMTPAdapter,
   tls: :always,
   ssl: :always,
