@@ -20,6 +20,8 @@ defmodule Ret.PermsToken do
   def resource_from_claims(_), do: nil
 
   def token_for_perms(perms) do
+    Logger.debug("FIXME: Ret.PermsToken - token_for_perms - perms%{"perms"}")
+
     {:ok, token, _claims} =
       Ret.PermsToken.encode_and_sign(
         # PermsTokens do not have a resource associated with them
@@ -35,10 +37,12 @@ end
 
 defmodule Ret.PermsTokenSecretFetcher do
   def fetch_signing_secret(mod, _opts) do
+    Logger.debug("FIXME: Ret.PermsToken - fetch_signing_secret - mod##1 %{"mod"}")
     {:ok, Application.get_env(:ret, mod)[:perms_key] |> JOSE.JWK.from_pem()}
   end
 
   def fetch_verifying_secret(mod, _token_headers, _opts) do
+    Logger.debug("FIXME: Ret.PermsToken - fetch_verifying_secret - mod#2 %{"mod"}")
     {:ok, Application.get_env(:ret, mod)[:perms_key] |> JOSE.JWK.from_pem()}
   end
 end
