@@ -38,6 +38,7 @@ defmodule Ret.PermsToken do
 end
 
 defmodule Ret.PermsTokenSecretFetcher do
+  require Logger
   def fetch_signing_secret(mod, _opts) do
     Logger.debug("FIXME: Ret.PermsToken - fetch_signing_secret - mod##1 %{mod}")
     {:ok, Application.get_env(:ret, mod)[:perms_key] |> JOSE.JWK.from_pem()}
