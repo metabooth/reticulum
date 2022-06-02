@@ -145,7 +145,8 @@ config :ret, Ret.Mailer,
   server: "smtp.gmail.com",
   port: "587",
   username: "info.metabooth@gmail.com",
-  password: "!Qaz@Wsx",
+  #password: "!Qaz@Wsx",
+  password: "yzmsjaroifsetgks",
   retries: 3
 
 
