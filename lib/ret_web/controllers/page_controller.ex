@@ -384,7 +384,11 @@ defmodule RetWeb.PageController do
 
   defp render_index(conn) do
     Logger.debug("FIXME: page call - render_index ...")
+
     method = conn |> get_req_header("x-original-method") |> Enum.at(0)
+
+    Logger.debug("FIXME: page call - render_index - METHOD:#{method}...")
+
     conn |> render_index(method)
   end
 
