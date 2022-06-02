@@ -14,7 +14,7 @@ defmodule RetWeb.Router do
   end
 
   pipeline :ssl_only do
-    # plug(Plug.SSL, hsts: true, rewrite_on: [:x_forwarded_proto])
+    plug(Plug.SSL, hsts: true, rewrite_on: [:x_forwarded_proto])
   end
 
   pipeline :parsed_body do
@@ -97,7 +97,7 @@ defmodule RetWeb.Router do
     get("/", HealthController, :index)
   end
 
-  # FIXME: PostgREST (proxy)
+  # FIXME: PostgREST (proxy) -> SOLVED
   scope "/api/postgrest" do
     pipe_through([:secure_headers, :auth_required, :admin_required, :proxy_api])
     forward("/", RetWeb.Plugs.PostgrestProxy)
