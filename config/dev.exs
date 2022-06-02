@@ -88,9 +88,9 @@ config :ret,
   bot_access_key: ""
 
 config :ret, Ret.PageOriginWarmer,
-  hubs_page_origin: "https://#{host}:8080/hubs-origin",
-  admin_page_origin: "https://#{host}:8989/admin-origin",
-  spoke_page_origin: "https://#{host}:9090/spoke-origin",
+  hubs_page_origin: "https://#{host}:8080",
+  admin_page_origin: "https://#{host}:8989",
+  spoke_page_origin: "https://#{host}:9090",
   insecure_ssl: true
 
 config :ret, Ret.HttpUtils, insecure_ssl: true
