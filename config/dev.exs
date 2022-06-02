@@ -22,7 +22,7 @@ config :ret, RetWeb.Endpoint,
   imgproxy_url: [scheme: "https", host: assets_host, port: 443],
   debug_errors: true,
   code_reloader: true,
-  check_origin: ["//*.pet-mom.club","//*.pet-mom.club:8080","//*pet-mom.club:8989","//*.pet-mom.club:9090"],
+  check_origin: ["//*.pet-mom.club","//*.pet-mom.club:8080","//*.pet-mom.club:8989","//*.pet-mom.club:9090"],
   secret_key_base: "txlMOtlaY5x3crvOCko4uV5PM29ul3zGo1oBGNO3cDXx+7GHLKqt0gR9qzgThxb5",
   allowed_origins: "*",
   allow_crawlers: false
@@ -88,9 +88,9 @@ config :ret,
   bot_access_key: ""
 
 config :ret, Ret.PageOriginWarmer,
-  hubs_page_origin: "https://#{host}:8080",
-  admin_page_origin: "https://#{host}:8989",
-  spoke_page_origin: "https://#{host}:9090",
+  hubs_page_origin: "https://#{host}:8080/hubs-origin",
+  admin_page_origin: "https://#{host}:8989/admin-origin",
+  spoke_page_origin: "https://#{host}:9090/spoke-origin",
   insecure_ssl: true
 
 config :ret, Ret.HttpUtils, insecure_ssl: true
