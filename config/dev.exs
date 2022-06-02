@@ -5,7 +5,7 @@ cors_proxy_host = "hubs.local"
 assets_host = "hubs.local"
 link_host = "hubs.local"
 
-dev_janus_host = "localhost"
+dev_janus_host = host
 
 config :ret, RetWeb.Endpoint,
   url: [scheme: "https", host: host, port: 443],
