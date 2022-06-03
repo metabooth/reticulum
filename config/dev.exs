@@ -16,7 +16,7 @@ config :ret, RetWeb.Endpoint,
     cacertfile: "/home/lonycell/metabooth/.certs/ca-bundle.pem",
     keyfile: "/home/lonycell/metabooth/.certs/cert.key"
   ],
-  cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 443],
+  cors_proxy_url: [scheme: "https", host: cors_proxy_host, port: 4000],
   assets_url: [scheme: "https", host: assets_host, port: 443],
   link_url: [scheme: "https", host: link_host, port: 443],
   imgproxy_url: [scheme: "https", host: assets_host, port: 443],
