@@ -22,7 +22,7 @@ config :ret, RetWeb.Endpoint,
   imgproxy_url: [scheme: "https", host: assets_host, port: 443],
   debug_errors: true,
   code_reloader: true,
-  check_origin: ["//*.pet-mom.club","//*.pet-mom.club:8080","//*.pet-mom.club:8989","//*.pet-mom.club:9090"],
+  check_origin: ["//*.pet-mom.club","//*.pet-mom.club:8080","//*.pet-mom.club:8989","//*.pet-mom.club:9090", "//*.reticulum.io"],
   secret_key_base: "txlMOtlaY5x3crvOCko4uV5PM29ul3zGo1oBGNO3cDXx+7GHLKqt0gR9qzgThxb5",
   allowed_origins: "*",
   allow_crawlers: false
@@ -131,6 +131,7 @@ asset_hosts = "https://#{host} " <>
   "https://#{host}:8080 " <>
   "https://#{host}:8989 " <>
   "https://#{host}:9090 " <>
+  "https://uploads-prod.reticulum.io"
   "https://#{cors_proxy_host}:4000"
 
 websocket_hosts = "wss://#{host} " <>
