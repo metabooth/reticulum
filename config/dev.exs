@@ -1,7 +1,7 @@
 use Mix.Config
 
 host = "www.pet-mom.club"
-cors_proxy_host = "hubs-proxy.com"
+cors_proxy_host = "www.pet-mom.club"
 assets_host = "hubs.local"
 link_host = "hubs.local"
 
