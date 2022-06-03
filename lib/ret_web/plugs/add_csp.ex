@@ -144,6 +144,9 @@ defmodule RetWeb.Plugs.AddCSP do
         custom_rules[:script_src],
         storage_url
       ],
+      "prefetch-src" => [
+        custom_rules[:script_src]
+      ],
       "child-src" => [
         "'self'",
         "blob:",
