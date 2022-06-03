@@ -131,9 +131,11 @@ asset_hosts = "https://#{host} " <>
   "https://#{host}:8080 " <>
   "https://#{host}:8989 " <>
   "https://#{host}:9090 " <>
-  "https://uploads-prod.reticulum.io"
-  "https://assets-prod.reticulum.io"
-  "https://#{cors_proxy_host}:4000"
+  "https://uploads-prod.reticulum.io " <>
+  "https://assets-prod.reticulum.io " <>
+  "https://raw.githubusercontent.com " <>
+  "https://hubs.mozilla.com " <>
+  "https://#{cors_proxy_host}:4000 "
 
 websocket_hosts = "wss://#{host} " <>
   "wss://#{host}:3001 " <>

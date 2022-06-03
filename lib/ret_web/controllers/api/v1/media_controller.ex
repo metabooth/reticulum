@@ -75,8 +75,8 @@ defmodule RetWeb.Api.V1.MediaController do
         )
 
       # FIXME: !!!
-      # {:error, :quota} ->
-      #   conn |> send_resp(413, "Unable to store additional content.")
+      {:error, :quota} ->
+        conn |> send_resp(413, "Unable to store additional content.")
 
       {:error, :not_allowed} ->
         conn |> send_resp(401, "")
