@@ -1,7 +1,7 @@
 use Mix.Config
 
 host = "www.pet-mom.club"
-cors_proxy_host = "hubs.local"
+cors_proxy_host = "hubs-proxy.com"
 assets_host = "hubs.local"
 link_host = "hubs.local"
 
@@ -136,6 +136,7 @@ asset_hosts = "https://#{host} " <>
   "https://raw.githubusercontent.com " <>
   "https://hubs.mozilla.com " <>
   "https://#{cors_proxy_host}:4000 "
+  "https://#{cors_proxy_host} "
 
 websocket_hosts = "wss://#{host} " <>
   "wss://#{host}:3001 " <>
