@@ -133,6 +133,8 @@ asset_hosts = "https://#{host} " <>
   "https://#{host}:9090 " <>
   "https://uploads-prod.reticulum.io " <>
   "https://assets-prod.reticulum.io " <>
+  "https://nearspark-dev.reticulum.io " <>
+  "https://nearspark-prod.reticulum.io " <>
   "https://raw.githubusercontent.com " <>
   "https://hubs.mozilla.com " <>
   "https://#{cors_proxy_host}:4000 "
