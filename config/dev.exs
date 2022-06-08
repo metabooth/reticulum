@@ -96,7 +96,7 @@ config :ret, Ret.PageOriginWarmer,
 config :ret, Ret.HttpUtils, insecure_ssl: true
 
 config :ret, Ret.MediaResolver,
-  giphy_api_key: nil,
+  giphy_api_key: "k7g3QZsIXWZECWZzaAck8RxGm6zV9nn4",
   deviantart_client_id: nil,
   deviantart_client_secret: nil,
   imgur_mashape_api_key: nil,
