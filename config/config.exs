@@ -23,7 +23,6 @@ config :mime, :types, %{
   # FIXME: TEST
   "model/fbx" => ["fbx"],
   "application/vnd.ms-excell" => ["excell"],
-  "application/application/vnd.openxmlformats-officedocument.presentationml.presentation" => ["PPT"],
 
   "application/vnd.spoke.scene" => ["spoke"],
   "application/vnd.pgrst.object+json" => ["json"],
