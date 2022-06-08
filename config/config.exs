@@ -19,11 +19,6 @@ config :mime, :types, %{
   "application/vnd.api+json" => ["json-api"],
   "model/gltf+json" => ["gltf"],
   "model/gltf-binary" => ["glb"],
-
-  # FIXME: TEST
-  "model/fbx" => ["fbx"],
-  "application/vnd.ms-excell" => ["excell"],
-
   "application/vnd.spoke.scene" => ["spoke"],
   "application/vnd.pgrst.object+json" => ["json"],
   "application/json" => ["json"],
