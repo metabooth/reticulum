@@ -70,6 +70,10 @@ defmodule RetWeb.Plugs.AddCSP do
       "style-src" => [
         "'self'",
         "'unsafe-inline'"
+      ],
+      "style-src=elem" => [
+        "'self'",
+        "'unsafe-inline'"
       ]
     }
   end
@@ -171,6 +175,16 @@ defmodule RetWeb.Plugs.AddCSP do
         storage_url
       ],
       "style-src" => [
+        "'self'",
+        "'unsafe-inline'",
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com",
+        assets_url,
+        cors_proxy_url,
+        custom_rules[:style_src],
+        storage_url
+      ],
+      "style-src-elem" => [
         "'self'",
         "'unsafe-inline'",
         "https://cdn.jsdelivr.net",
