@@ -137,7 +137,6 @@ asset_hosts = "https://#{host} " <>
   "https://nearspark-prod.reticulum.io " <>
   "https://raw.githubusercontent.com " <>
   "https://hubs.mozilla.com " <>
-  "fonts.googleapis.com " <>
   "https://#{cors_proxy_host}:4000 "
   "https://#{cors_proxy_host} "
 
