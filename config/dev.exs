@@ -133,6 +133,7 @@ asset_hosts = "https://#{host} " <>
   "https://#{host}:8989 " <>
   "https://#{host}:9090 " <>
   "https://*.reticulum.io " <>
+  "https://*.tenor.com " <>
   # "https://uploads-prod.reticulum.io " <>
   # "https://assets-prod.reticulum.io " <>
   # "https://nearspark-dev.reticulum.io " <>
