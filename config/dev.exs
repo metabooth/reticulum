@@ -103,6 +103,7 @@ config :ret, Ret.MediaResolver,
   imgur_client_id: nil,
   youtube_api_key: nil,
   sketchfab_api_key: "38dc4d3667334e9f88e86a2280db6f19",
+  tenor_api_key: "AIzaSyAEmdkbl_e2iZypGYRvUZ8q2QbFVw-rIC8",
   ytdl_host: nil,
   photomnemonic_endpoint: "https://uvnsm9nzhe.execute-api.us-west-1.amazonaws.com/public"
 
